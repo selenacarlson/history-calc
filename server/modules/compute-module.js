@@ -1,10 +1,14 @@
-const 
+const computationsArray = [];
 
-function addComputation(){
-
+function add(computation){
+    computationsArray.push(computation);
 }; 
 
-function compute(object){
+function history(){
+    return computationsArray;
+}
+
+function comp(object){
     if (object.computer = '+'){
         let answer = object.number1 + object.number2;
         return answer
@@ -24,4 +28,8 @@ function compute(object){
 
 }; // end compute
 
-module.exports = compute;
+module.exports = {
+    compute: comp,
+    addComputation: add,
+    getHistory: history
+}

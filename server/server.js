@@ -9,16 +9,23 @@ app.use(express.static('server/public'));
 
 const computeModule = require('./modules/compute-module');
 
-let computation = {};
+computation = {};
 
-app.post('/calculate', function(request, response){
+app.post('/add', function(request, response){
     let computation = request.body.objectToCompute;
-    response.sendStatus(200);
+    computeModule.addComputation( computation );
     console.log(computation);
+    response.sendStatus(200);
+});
+
+app.get('/history', function(request, response){
+    let history = computeModule.getHistory();
+    console.log(history);
+    response.send(history);
 });
 
 app.get('/calculate', function(request, response){
-    let answer = computeModule(request.body.computation);
+    let answer = computeModule.compute( computation );
     return answer;
     console.log(answer);
     response.send(answer);
