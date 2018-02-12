@@ -5,13 +5,13 @@ function add(computation){
         computation.answer = Number(computation.number1) + Number(computation.number2);
     } // end +
     else if (computation.computer = '-'){
-        computation.answer = Number(computation.number1) - (computation.number2);
+        computation.answer = Number(computation.number1) - Number(computation.number2);
     } // end -
     else if (computation.computer = '*'){
-        computation.answer = Number(computation.number1) * (computation.number2);
+        computation.answer = Number(computation.number1) * Number(computation.number2);
     } // end *
     else {
-        computation.answer = Number(computation.number1) / (computation.number2);
+        computation.answer = Number(computation.number1) / Number(computation.number2);
     } // %
     computationsArray.push(computation);
 }; 
