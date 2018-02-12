@@ -40,7 +40,6 @@ function onReady(){
             data: {objectToCompute: objectToCompute}
         }).done(function(response){
             console.log(response);
-            getAnswer();
             getHistory();
         }).fail(function(response){
             console.log('fail');
@@ -54,18 +53,6 @@ function onReady(){
             url: '/history',
         }).done(function(response){
             showHistory(response);
-            console.log(response);
-        }).fail(function(response){
-            console.log('fail');
-        })
-    } // getAnswer
-
-    function getAnswer(){
-        console.log('in getAnswer');
-        $.ajax({
-            method: 'GET',
-            url: '/calculate',
-        }).done(function(response){
             displayAnswer(response);
             console.log(response);
         }).fail(function(response){
@@ -73,9 +60,10 @@ function onReady(){
         })
     } // getAnswer
 
-    function displayAnswer(answer){
+    function displayAnswer(historyList){
+        $('#answer').empty();
         console.log('displayAnswer');
-        $('#answer').append('<h2> = ' + answer + '</h2>');
+        $('#answer').text(`Answer = ${historyList[historyList.length - 1].answer}`);
     } // end displayAnswer
 
     function showHistory(historyList){
@@ -83,13 +71,11 @@ function onReady(){
         let $ul = $('<ul></ul>');
         for(let i = 0; i<historyList.length; i++){
             $ul.append(`<li>
-                ${historyList[i].number1} ${historyList[i].computer} ${historyList[i].number2}
+                ${historyList[i].number1} ${historyList[i].computer} ${historyList[i].number2} = ${historyList[i].answer}
               </li>`);
             }
             $('#history').append($ul);
     }; // end showHistory
-
-    
 
 }; // end onReady
 

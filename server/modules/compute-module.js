@@ -1,6 +1,18 @@
 const computationsArray = [];
 
 function add(computation){
+    if (computation.computer = '+'){
+        computation.answer = Number(computation.number1) + Number(computation.number2);
+    } // end +
+    else if (computation.computer = '-'){
+        computation.answer = Number(computation.number1) - (computation.number2);
+    } // end -
+    else if (computation.computer = '*'){
+        computation.answer = Number(computation.number1) * (computation.number2);
+    } // end *
+    else {
+        computation.answer = Number(computation.number1) / (computation.number2);
+    } // %
     computationsArray.push(computation);
 }; 
 
@@ -8,28 +20,7 @@ function history(){
     return computationsArray;
 }
 
-function comp(object){
-    if (object.computer = '+'){
-        let answer = object.number1 + object.number2;
-        return answer
-    } // end +
-    else if (object.computer = '-'){
-        let answer = object.number1 - object.number2;
-        return answer
-    } // end -
-    else if (object.computer = '*'){
-        let answer = object.number1 * object.number2;
-        return answer
-    } // end *
-    else if (object.computer = '%'){
-        let answer = object.number1 / object.number2;
-        return answer
-    } // %
-
-}; // end compute
-
 module.exports = {
-    compute: comp,
     addComputation: add,
     getHistory: history
 }

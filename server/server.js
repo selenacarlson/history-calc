@@ -24,13 +24,6 @@ app.get('/history', function(request, response){
     response.send(history);
 });
 
-app.get('/calculate', function(request, response){
-    let answer = computeModule.compute( computation );
-    return answer;
-    console.log(answer);
-    response.send(answer);
-});
-
 app.listen(port, function(){
     console.log('listening on port:', port);
 });
