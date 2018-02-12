@@ -1,13 +1,13 @@
 const computationsArray = [];
 
 function add(computation){
-    if (computation.computer = '+'){
+    if (computation.computer == '+'){
         computation.answer = Number(computation.number1) + Number(computation.number2);
     } // end +
-    else if (computation.computer = '-'){
+    else if (computation.computer == '-'){
         computation.answer = Number(computation.number1) - Number(computation.number2);
     } // end -
-    else if (computation.computer = '*'){
+    else if (computation.computer == '*'){
         computation.answer = Number(computation.number1) * Number(computation.number2);
     } // end *
     else {
